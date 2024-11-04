@@ -49,7 +49,7 @@ jobs:
       continue-on-error: true
 
     - name: Restream to Youtube
-      run: ls
+      run: python3 TwitchYouTubeRestreamer/twitch_youtube_restream.py
       continue-on-error: true
 
 
