@@ -1,0 +1,12 @@
+{
+    // Twitch API `client_id` (get from https://dev.twitch.tv/dashboard/apps)
+    "twitch_api_client_id": "",
+    // Twitch source channel name
+    "twitch_channel_name": "",
+    // Secret stream key from YouTube (get from https://www.youtube.com/live_dashboard)
+    "youtube_stream_key": "",
+    // Continuously retry if restreaming fails
+    "continuous_retry": true,
+    // How often to retry, if enabled
+    "stream_check_interval": 5
+}
