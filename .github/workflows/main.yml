@@ -1,5 +1,4 @@
-name: Download Twitch Stream
-
+name: Restream to Youtube
 on:
   workflow_dispatch:
     inputs:
@@ -35,7 +34,7 @@ jobs:
         python-version: '3.x'
 
     - name: Install Restream
-      run: git clone https://github.com/Muny/TwitchYouTubeRestreamer/tree/master
+      run: git clone https://github.com/Muny/TwitchYouTubeRestreamer.git
 
     - name: Extract Stream Title
       id: extract-title
