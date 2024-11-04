@@ -34,12 +34,9 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install yt-dlp
-      run: python -m pip install --upgrade yt-dlp
+    - name: Install Restream
+      run: git clone https://github.com/Muny/TwitchYouTubeRestreamer/tree/master
 
-    - name: Install FFmpeg
-      run: sudo apt-get update && sudo apt-get install -y ffmpeg
-      
     - name: Extract Stream Title
       id: extract-title
       run: echo "STREAM_TITLE=$(yt-dlp --get-title ${{ github.event.inputs.stream_url }})" >> $GITHUB_ENV
@@ -48,12 +45,12 @@ jobs:
       run: |
         echo "SANITIZED_TITLE=$(echo $STREAM_TITLE | sed 's/[":<>|*?\\/\r\n]//g')" >> $GITHUB_ENV
 
-    - name: Download Stream Segment
-      run: timeout ${{ github.event.inputs.timeout }} yt-dlp --hls-use-mpegts -S ${{ github.event.inputs.resolution }},filesize:ascending -o "${{ env.SANITIZED_TITLE }}.%(ext)s" ${{ github.event.inputs.stream_url }}
+    - name: ls
+      run: ls
       continue-on-error: true
 
-    - name: Upload Stream as Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ env.SANITIZED_TITLE }}
-        path: ./*
+    - name: Restream to Youtube
+      run: ls
+      continue-on-error: true
+
+
